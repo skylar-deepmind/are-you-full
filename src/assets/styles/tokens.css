@@ -1,0 +1,22 @@
+:root {
+  color-scheme: light dark;
+  --app-bg: #fff8f0;
+  --app-surface: rgba(255, 252, 247, 0.88);
+  --app-fg: #2f2318;
+  --app-muted: #7b6554;
+  --app-border: #ead9c7;
+  --app-accent-soft: #ffe2c2;
+  --app-accent-strong: #c26a1a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --app-bg: #191411;
+    --app-surface: rgba(34, 27, 23, 0.9);
+    --app-fg: #f8efe6;
+    --app-muted: #cfb8a5;
+    --app-border: #3d3028;
+    --app-accent-soft: #54311f;
+    --app-accent-strong: #ff9a66;
+  }
+}
