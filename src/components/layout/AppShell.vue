@@ -3,7 +3,7 @@
     <AppHeader class="fixed inset-x-0 top-0 z-50 md:static" />
 
     <main
-      class="px-4 py-4 pt-[calc(env(safe-area-inset-top)+5.25rem)] pb-[calc(env(safe-area-inset-bottom)+5.5rem)] md:pt-4 md:pb-4"
+      class="px-4 py-4 pt-[calc(env(safe-area-inset-top)+5.25rem)] pb-[calc(env(safe-area-inset-bottom)+6.5rem)] md:pt-4 md:pb-4"
     >
       <RouterView />
     </main>

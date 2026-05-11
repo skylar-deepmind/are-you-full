@@ -5,7 +5,7 @@
     <div class="flex items-center justify-between gap-3">
       <div>
         <p class="text-xs font-medium tracking-wide text-[var(--app-muted)]">
-          撑了么
+          轻记录
         </p>
         <h1 class="text-lg font-semibold leading-tight">
           <slot name="title">今天吃得刚刚好</slot>
@@ -14,7 +14,7 @@
       <span
         class="badge badge-soft badge-warning border-0 px-3 py-3 text-xs font-medium text-[var(--app-accent-strong)]"
       >
-        <slot name="badge">轻记录</slot>
+        <slot name="badge">撑了么v0.1</slot>
       </span>
     </div>
   </header>
