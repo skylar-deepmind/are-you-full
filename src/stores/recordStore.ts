@@ -1,9 +1,25 @@
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
-import { recordRepository, createEmptyRecordDraft } from "@/repositories/recordRepository";
+import {
+  recordRepository,
+  createEmptyRecordDraft,
+} from "@/repositories/recordRepository";
 import { formatDateLabel, getTodayKey } from "@/utils/date";
-import { average, filterRecordsByRange, getDailyTrend, getStatsSummary, sortRecordsForDisplay } from "@/utils/stats";
-import type { ExportPayload, ImportResult, MealRecord, MealRecordDraft, MealType, RecordGroup } from "@/types/domain";
+import {
+  average,
+  filterRecordsByRange,
+  getDailyTrend,
+  getStatsSummary,
+  sortRecordsForDisplay,
+} from "@/utils/stats";
+import type {
+  ExportPayload,
+  ImportResult,
+  MealRecord,
+  MealRecordDraft,
+  MealType,
+  RecordGroup,
+} from "@/types/domain";
 
 export const useRecordStore = defineStore("record", () => {
   const records = ref<MealRecord[]>([]);
@@ -11,14 +27,23 @@ export const useRecordStore = defineStore("record", () => {
 
   const todayKey = computed(() => getTodayKey());
   const sortedRecords = computed(() => sortRecordsForDisplay(records.value));
-  const todayRecords = computed(() => sortedRecords.value.filter((record) => record.dateKey === todayKey.value));
+  const todayRecords = computed(() =>
+    sortedRecords.value.filter((record) => record.dateKey === todayKey.value),
+  );
   const todayRecordsByMealType = computed(() => {
     const result = new Map<MealType, MealRecord | null>();
     for (const mealType of ["breakfast", "lunch", "dinner", "snack"] as const) {
-      result.set(mealType, sortedRecords.value.find((record) => record.dateKey === todayKey.value && record.mealType === mealType) ?? null);
+      result.set(
+        mealType,
+        sortedRecords.value.find(
+          (record) =>
+            record.dateKey === todayKey.value && record.mealType === mealType,
+        ) ?? null,
+      );
     }
     return result;
   });
+  // Group records by dateKey
   const groupedRecords = computed<RecordGroup[]>(() => {
     const groups = new Map<string, MealRecord[]>();
     for (const record of sortedRecords.value) {

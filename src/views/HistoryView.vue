@@ -1,10 +1,14 @@
 <template>
   <div class="space-y-4">
-    <section class="rounded-[1.25rem] border border-[var(--app-border)] bg-[var(--app-surface)] p-4">
+    <section
+      class="rounded-[1.25rem] border border-[var(--app-border)] bg-[var(--app-surface)] p-4"
+    >
       <div class="flex items-center justify-between gap-3">
         <div>
           <h2 class="text-lg font-semibold">历史</h2>
-          <p class="mt-1 text-sm text-[var(--app-muted)]">按天回看每顿饭的感觉。</p>
+          <p class="mt-1 text-sm text-[var(--app-muted)]">
+            按天回看每顿饭的感觉。
+          </p>
         </div>
       </div>
     </section>
@@ -23,7 +27,10 @@
         <div class="flex items-center justify-between gap-3">
           <div>
             <h3 class="text-base font-semibold">{{ group.label }}</h3>
-            <p class="mt-1 text-xs text-[var(--app-muted)]">{{ group.totalCount }} 条记录 · 平均 {{ group.averageFullness.toFixed(1) }}</p>
+            <p class="mt-1 text-xs text-[var(--app-muted)]">
+              {{ group.totalCount }} 条记录 · 平均
+              {{ group.averageFullness.toFixed(1) }}
+            </p>
           </div>
         </div>
 
@@ -65,7 +72,7 @@ onMounted(() => {
   recordStore.ensureLoaded();
 });
 
-const groupedRecords = computed(() => recordStore.groupedRecords.slice().reverse());
+const groupedRecords = computed(() => recordStore.groupedRecords.slice());
 const drawerContext = computed(() => ui.drawer.context);
 const currentRecord = computed(() => {
   const context = drawerContext.value;
