@@ -1,5 +1,5 @@
 <template>
-  <div v-if="ui.confirmState.open" class="fixed inset-0 z-50 flex items-end justify-center bg-black/30 px-4 pb-4 pt-16 sm:items-center">
+  <div v-if="ui.confirmState.open" class="fixed inset-0 z-[70] flex items-end justify-center bg-black/30 px-4 pb-4 pt-16 sm:items-center">
     <div class="w-full max-w-md rounded-[1.25rem] border border-[var(--app-border)] bg-[var(--app-surface)] p-4 shadow-xl">
       <h2 class="text-base font-semibold">{{ ui.confirmState.title }}</h2>
       <p class="mt-2 text-sm leading-6 text-[var(--app-muted)]">{{ ui.confirmState.message }}</p>

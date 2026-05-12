@@ -152,14 +152,15 @@ function save(): void {
 }
 
 function requestDelete(): void {
-  if (!props.record) return;
+  const currentId = props.record?.id;
+  if (!currentId) return;
   ui.openConfirm({
     title: "要删掉这条记录吗",
     message: "删掉之后就不会保留这顿饭的饱腹感啦。",
     confirmLabel: "删掉",
     cancelLabel: "先不删",
     onConfirm: () => {
-      recordStore.removeRecord(props.record?.id ?? "");
+      recordStore.removeRecord(currentId);
       ui.pushToast("已经删掉了", "warning");
       close();
     },

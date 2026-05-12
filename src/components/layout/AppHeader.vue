@@ -14,7 +14,7 @@
       <span
         class="badge badge-soft badge-warning border-0 px-3 py-3 text-xs font-medium text-[var(--app-accent-strong)]"
       >
-        <slot name="badge">撑了么v0.1</slot>
+        <slot name="badge">撑了么v0.2</slot>
       </span>
     </div>
   </header>
