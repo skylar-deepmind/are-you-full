@@ -62,6 +62,7 @@ export const useRecordStore = defineStore("record", () => {
   });
 
   const todaySummary = computed(() => getStatsSummary(todayRecords.value));
+  const overallSummary = computed(() => getStatsSummary(sortedRecords.value));
   const todayTrend = computed(() => getDailyTrend(sortedRecords.value, 7));
 
   function hydrate(): void {
@@ -148,6 +149,7 @@ export const useRecordStore = defineStore("record", () => {
     todayRecordsByMealType,
     groupedRecords,
     todaySummary,
+    overallSummary,
     todayTrend,
     sortedRecords,
     hydrate,

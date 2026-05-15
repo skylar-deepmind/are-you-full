@@ -1,6 +1,8 @@
 <template>
   <div class="space-y-4">
-    <section class="rounded-[1.25rem] border border-[var(--app-border)] bg-[var(--app-surface)] p-4">
+    <section
+      class="rounded-[1.25rem] border border-[var(--app-border)] bg-[var(--app-surface)] p-4"
+    >
       <p class="text-xs text-[var(--app-muted)]">{{ todayLabel }}</p>
       <h2 class="mt-1 text-xl font-semibold">今天吃得怎么样？</h2>
       <p class="mt-2 text-sm leading-6 text-[var(--app-muted)]">
@@ -20,19 +22,27 @@
       />
     </section>
 
-    <section class="rounded-[1.25rem] border border-[var(--app-border)] bg-[var(--app-surface)] p-4">
+    <section
+      class="rounded-[1.25rem] border border-[var(--app-border)] bg-[var(--app-surface)] p-4"
+    >
       <p class="text-sm font-medium">今日摘要</p>
       <div class="mt-3 grid grid-cols-3 gap-3 text-center">
         <div class="rounded-2xl bg-[var(--app-accent-soft)]/60 px-3 py-3">
-          <p class="text-lg font-semibold text-[var(--app-accent-strong)]">{{ recordStore.todaySummary.totalRecords }}</p>
+          <p class="text-lg font-semibold text-[var(--app-accent-strong)]">
+            {{ recordStore.todaySummary.totalRecords }}
+          </p>
           <p class="mt-1 text-xs text-[var(--app-muted)]">条记录</p>
         </div>
         <div class="rounded-2xl bg-[var(--app-accent-soft)]/60 px-3 py-3">
-          <p class="text-lg font-semibold text-[var(--app-accent-strong)]">{{ recordStore.todaySummary.averageFullness.toFixed(1) }}</p>
+          <p class="text-lg font-semibold text-[var(--app-accent-strong)]">
+            {{ recordStore.todaySummary.averageFullness.toFixed(1) }}
+          </p>
           <p class="mt-1 text-xs text-[var(--app-muted)]">平均饱腹</p>
         </div>
         <div class="rounded-2xl bg-[var(--app-accent-soft)]/60 px-3 py-3">
-          <p class="text-lg font-semibold text-[var(--app-accent-strong)]">{{ recordStore.todaySummary.uniqueDays }}</p>
+          <p class="text-lg font-semibold text-[var(--app-accent-strong)]">
+            {{ recordStore.overallSummary.uniqueDays }}
+          </p>
           <p class="mt-1 text-xs text-[var(--app-muted)]">有记录天数</p>
         </div>
       </div>
