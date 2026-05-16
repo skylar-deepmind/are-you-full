@@ -4,7 +4,7 @@
       v-for="option in FULLNESS_OPTIONS"
       :key="option.value"
       type="button"
-      class="rounded-2xl border px-2 py-3 text-center transition"
+      class="app-pill-button min-h-[68px] rounded-[var(--app-card-radius)] border px-2 py-3 text-center transition"
       :class="option.value === modelValue ? activeClass : inactiveClass"
       @click="select(option.value)"
     >
@@ -26,7 +26,7 @@ const emit = defineEmits<{
   "update:modelValue": [value: FullnessLevel];
 }>();
 
-const activeClass = "border-[var(--app-accent-strong)] bg-[var(--app-accent-soft)] text-[var(--app-accent-strong)]";
+const activeClass = "border-[var(--app-accent-strong)] bg-[var(--app-accent-soft)] text-[var(--app-green-brand)]";
 const inactiveClass = "border-[var(--app-border)] bg-white text-[var(--app-muted)]";
 
 function select(value: FullnessLevel): void {

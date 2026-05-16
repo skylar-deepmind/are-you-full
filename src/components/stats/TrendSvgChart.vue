@@ -1,13 +1,13 @@
 <template>
-  <section class="rounded-[1.25rem] border border-[var(--app-border)] bg-[var(--app-surface)] p-4">
+  <section class="app-card p-4">
     <div class="flex items-center justify-between gap-3">
-      <h3 class="text-sm font-semibold">饱腹趋势</h3>
+      <h3 class="text-sm font-semibold text-[var(--app-green-brand)]">饱腹趋势</h3>
       <span class="text-xs text-[var(--app-muted)]">0 - 5</span>
     </div>
 
-    <div class="mt-3 overflow-hidden rounded-2xl bg-white">
+    <div class="mt-3 overflow-hidden rounded-[var(--app-card-radius)] bg-[var(--app-surface-soft)]">
       <svg viewBox="0 0 320 180" class="h-44 w-full" role="img" aria-label="饱腹趋势图">
-        <g stroke="rgba(123,101,84,0.15)" stroke-width="1">
+        <g stroke="rgba(0,0,0,0.12)" stroke-width="1">
           <line v-for="line in gridLines" :key="line" x1="36" :y1="line" x2="300" :y2="line" />
         </g>
         <g fill="none" stroke="var(--app-accent-strong)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">

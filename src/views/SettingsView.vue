@@ -1,36 +1,34 @@
 <template>
-  <div class="space-y-4">
-    <section
-      class="rounded-[1.25rem] border border-[var(--app-border)] bg-[var(--app-surface)] p-4"
-    >
-      <h2 class="text-lg font-semibold">设置</h2>
+  <div class="space-y-5">
+    <section class="app-card p-4">
+      <h2 class="app-section-title">设置</h2>
       <p class="mt-1 text-sm text-[var(--app-muted)]">
         所有数据只保存在你的设备里，不会上云。
       </p>
 
       <div class="mt-4 space-y-3 text-sm leading-6 text-[var(--app-fg)]">
-        <div class="rounded-2xl bg-white px-4 py-3">
+        <div class="app-card-soft px-4 py-3">
           <p class="font-medium">本地隐私说明</p>
           <p class="mt-1 text-[var(--app-muted)]">
             「撑了么」只会把记录存在本机浏览器里，默认不会创建账号，也不会上传你的饮食记录。
           </p>
         </div>
 
-        <div class="rounded-2xl bg-white px-4 py-3">
+        <div class="app-card-soft px-4 py-3">
           <p class="font-medium">导出 JSON</p>
           <p class="mt-1 text-[var(--app-muted)]">
             可以把当前所有记录导成备份文件，方便留存或迁移。
           </p>
         </div>
 
-        <div class="rounded-2xl bg-white px-4 py-3">
+        <div class="app-card-soft px-4 py-3">
           <p class="font-medium">导入 JSON</p>
           <p class="mt-1 text-[var(--app-muted)]">
             导入时会校验 app、version 和 records，成功后以文件内容覆盖本地数据。
           </p>
         </div>
 
-        <div class="rounded-2xl bg-white px-4 py-3">
+        <div class="app-card-soft px-4 py-3">
           <p class="font-medium">添加到主屏幕</p>
           <ol class="mt-1 list-decimal space-y-1 pl-5 text-[var(--app-muted)]">
             <li>用 Safari 打开「撑了么」</li>
@@ -43,12 +41,12 @@
 
       <div class="mt-4 flex flex-col gap-3">
         <button
-          class="btn btn-outline rounded-2xl border-[var(--app-border)]"
+          class="app-pill-button app-outline-button flex items-center justify-center px-4 text-sm font-semibold"
           @click="exportJson"
         >
           导出 JSON
         </button>
-        <label class="btn btn-outline rounded-2xl border-[var(--app-border)]">
+        <label class="app-pill-button app-outline-button flex items-center justify-center px-4 text-sm font-semibold">
           导入 JSON
           <input
             class="hidden"
@@ -58,7 +56,7 @@
           />
         </label>
         <button
-          class="btn btn-ghost rounded-2xl text-amber-700"
+          class="app-pill-button flex items-center justify-center rounded-full px-4 text-sm font-semibold text-[var(--app-danger)]"
           @click="clearAll"
         >
           清空全部数据

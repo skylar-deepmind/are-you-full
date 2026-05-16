@@ -2,14 +2,14 @@
   <Transition name="drawer">
     <div v-if="open" class="fixed inset-0 z-60 bg-black/30" @click.self="close">
       <div
-        class="absolute inset-x-0 bottom-0 mx-auto w-full max-w-120 rounded-t-3xl border border-(--app-border) bg-(--app-surface) p-4 pb-[calc(env(safe-area-inset-bottom)+1rem)] shadow-2xl"
+        class="absolute inset-x-0 bottom-0 mx-auto w-full max-w-120 rounded-t-[var(--app-card-radius)] border border-[var(--app-border)] bg-[var(--app-surface)] p-4 pb-[calc(env(safe-area-inset-bottom)+1rem)] shadow-[var(--app-float-shadow)]"
       >
         <div class="mb-4 flex items-start justify-between gap-3">
           <div>
-            <p class="text-xs text-(--app-muted)">{{ modeText }}</p>
-            <h2 class="text-lg font-semibold">{{ mealLabel }}</h2>
+            <p class="text-xs font-semibold text-[var(--app-muted)]">{{ modeText }}</p>
+            <h2 class="text-lg font-semibold text-[var(--app-green-brand)]">{{ mealLabel }}</h2>
           </div>
-          <button class="btn btn-ghost btn-sm rounded-full" @click="close">
+          <button class="app-pill-button rounded-full px-4 text-sm font-semibold text-[var(--app-muted)]" @click="close">
             关闭
           </button>
         </div>
@@ -25,7 +25,7 @@
             <input
               v-model="draft.time"
               type="time"
-              class="input input-bordered w-full rounded-2xl bg-white"
+              class="input input-bordered w-full rounded-[var(--app-card-radius)] border-[var(--app-border)] bg-white focus:border-[var(--app-accent-strong)]"
             />
           </div>
 
@@ -35,10 +35,10 @@
               v-model="draft.note"
               maxlength="100"
               rows="4"
-              class="textarea textarea-bordered w-full rounded-2xl bg-white"
+              class="textarea textarea-bordered w-full rounded-[var(--app-card-radius)] border-[var(--app-border)] bg-white focus:border-[var(--app-accent-strong)]"
               placeholder="吃得轻松一点，也可以写两句感受"
             />
-            <p class="mt-1 text-right text-xs text-(--app-muted)">
+            <p class="mt-1 text-right text-xs text-[var(--app-muted)]">
               {{ draft.note.length }}/100
             </p>
           </div>
@@ -47,13 +47,13 @@
         <div class="mt-5 flex gap-2">
           <button
             v-if="isEditing"
-            class="btn btn-outline flex-1 rounded-2xl border-amber-300 text-amber-700"
+            class="app-pill-button flex-1 border border-[var(--app-danger)] text-sm font-semibold text-[var(--app-danger)]"
             @click="requestDelete"
           >
             删除
           </button>
           <button
-            class="btn btn-warning flex-1 rounded-2xl border-0 text-(--app-accent-strong)"
+            class="app-pill-button app-primary-button flex-1 text-sm font-semibold"
             @click="save"
           >
             保存

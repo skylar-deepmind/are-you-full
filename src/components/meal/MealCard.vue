@@ -1,27 +1,27 @@
 <template>
   <button
-    class="flex w-full flex-col gap-3 rounded-[1.25rem] border p-4 text-left transition active:scale-[0.99]"
+    class="flex w-full flex-col gap-4 rounded-[var(--app-card-radius)] border p-4 text-left transition active:scale-[0.99]"
     :class="cardClass"
     @click="$emit('select')"
   >
     <div class="flex items-center justify-between gap-3">
       <div>
-        <p class="text-sm font-medium">{{ title }}</p>
+        <p class="text-base font-semibold text-[var(--app-green-brand)]">{{ title }}</p>
         <p class="mt-1 text-xs text-[var(--app-muted)]">{{ subtitle }}</p>
       </div>
-      <span class="rounded-full px-3 py-1 text-xs font-medium" :class="statusClass">
+      <span class="rounded-full border px-3 py-1 text-xs font-semibold" :class="statusClass">
         {{ record ? `饱腹 ${record.fullness}/5` : "未记录" }}
       </span>
     </div>
 
     <div class="flex items-end justify-between gap-3">
       <div>
-        <p class="text-2xl font-semibold leading-none text-[var(--app-accent-strong)]">
+        <p class="text-2xl font-semibold leading-none text-[var(--app-fg)]">
           {{ record ? fullnessLabel : "—" }}
         </p>
         <p class="mt-2 text-xs text-[var(--app-muted)]">{{ record?.note || emptyHint }}</p>
       </div>
-      <span class="text-lg leading-none text-[var(--app-accent-strong)]">+</span>
+      <span class="grid size-10 place-items-center rounded-full bg-[var(--app-accent-strong)] text-xl leading-none text-white shadow-[var(--app-float-shadow)]">+</span>
     </div>
   </button>
 </template>
@@ -46,11 +46,13 @@ const fullnessLabel = computed(() => FULLNESS_OPTIONS.find((option) => option.va
 
 const cardClass = computed(() =>
   props.record
-    ? "border-[var(--app-accent-soft)] bg-[var(--app-surface)] shadow-[0_10px_24px_rgba(184,145,93,0.08)]"
-    : "border-[var(--app-border)] bg-[var(--app-surface)]",
+    ? "border-[var(--app-accent-strong)] bg-[var(--app-surface)] shadow-[var(--app-card-shadow)]"
+    : "border-[var(--app-border)] bg-[var(--app-surface)] shadow-[var(--app-card-shadow)]",
 );
 
 const statusClass = computed(() =>
-  props.record ? "bg-[var(--app-accent-soft)] text-[var(--app-accent-strong)]" : "bg-neutral-100 text-[var(--app-muted)]",
+  props.record
+    ? "border-[var(--app-accent-strong)] bg-[var(--app-accent-soft)] text-[var(--app-green-brand)]"
+    : "border-[var(--app-border)] bg-[var(--app-surface-soft)] text-[var(--app-muted)]",
 );
 </script>

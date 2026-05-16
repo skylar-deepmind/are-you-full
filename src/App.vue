@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-dvh bg-[var(--app-bg)] text-[var(--app-fg)]">
-    <div class="mx-auto flex min-h-dvh w-full max-w-[480px] flex-col">
+    <div class="app-container flex min-h-dvh flex-col">
       <AppShell />
     </div>
   </div>

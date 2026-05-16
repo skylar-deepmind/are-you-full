@@ -1,13 +1,31 @@
 <template>
-  <div class="space-y-4">
-    <section
-      class="rounded-[1.25rem] border border-[var(--app-border)] bg-[var(--app-surface)] p-4"
-    >
-      <p class="text-xs text-[var(--app-muted)]">{{ todayLabel }}</p>
-      <h2 class="mt-1 text-xl font-semibold">今天吃得怎么样？</h2>
-      <p class="mt-2 text-sm leading-6 text-[var(--app-muted)]">
+  <div class="space-y-5">
+    <section class="app-hero-band overflow-hidden p-5">
+      <p class="text-xs font-semibold text-white/70">{{ todayLabel }}</p>
+      <h2 class="mt-2 text-2xl font-semibold leading-tight">今天吃得怎么样？</h2>
+      <p class="mt-3 text-sm leading-6 text-white/70">
         记录一顿饭，慢慢找到最舒服的饱腹点。
       </p>
+      <div class="mt-5 grid grid-cols-3 gap-2 text-center">
+        <div class="rounded-xl bg-white/10 px-2 py-3">
+          <p class="text-xl font-semibold text-white">
+            {{ recordStore.todaySummary.totalRecords }}
+          </p>
+          <p class="mt-1 text-[11px] text-white/70">条记录</p>
+        </div>
+        <div class="rounded-xl bg-white/10 px-2 py-3">
+          <p class="text-xl font-semibold text-white">
+            {{ recordStore.todaySummary.averageFullness.toFixed(1) }}
+          </p>
+          <p class="mt-1 text-[11px] text-white/70">平均饱腹</p>
+        </div>
+        <div class="rounded-xl bg-white/10 px-2 py-3">
+          <p class="text-xl font-semibold text-white">
+            {{ recordStore.overallSummary.uniqueDays }}
+          </p>
+          <p class="mt-1 text-[11px] text-white/70">记录天数</p>
+        </div>
+      </div>
     </section>
 
     <section class="grid gap-3">
@@ -20,32 +38,6 @@
         :record="item.record"
         @select="openDrawer(item.mealType)"
       />
-    </section>
-
-    <section
-      class="rounded-[1.25rem] border border-[var(--app-border)] bg-[var(--app-surface)] p-4"
-    >
-      <p class="text-sm font-medium">今日摘要</p>
-      <div class="mt-3 grid grid-cols-3 gap-3 text-center">
-        <div class="rounded-2xl bg-[var(--app-accent-soft)]/60 px-3 py-3">
-          <p class="text-lg font-semibold text-[var(--app-accent-strong)]">
-            {{ recordStore.todaySummary.totalRecords }}
-          </p>
-          <p class="mt-1 text-xs text-[var(--app-muted)]">条记录</p>
-        </div>
-        <div class="rounded-2xl bg-[var(--app-accent-soft)]/60 px-3 py-3">
-          <p class="text-lg font-semibold text-[var(--app-accent-strong)]">
-            {{ recordStore.todaySummary.averageFullness.toFixed(1) }}
-          </p>
-          <p class="mt-1 text-xs text-[var(--app-muted)]">平均饱腹</p>
-        </div>
-        <div class="rounded-2xl bg-[var(--app-accent-soft)]/60 px-3 py-3">
-          <p class="text-lg font-semibold text-[var(--app-accent-strong)]">
-            {{ recordStore.overallSummary.uniqueDays }}
-          </p>
-          <p class="mt-1 text-xs text-[var(--app-muted)]">有记录天数</p>
-        </div>
-      </div>
     </section>
 
     <EmptyState v-if="recordStore.todayRecords.length === 0">

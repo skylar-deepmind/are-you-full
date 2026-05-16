@@ -1,19 +1,19 @@
 <template>
-  <article class="rounded-2xl border border-[var(--app-border)] bg-white px-4 py-3">
+  <article class="app-card-soft px-4 py-3">
     <button class="block w-full text-left" @click="$emit('edit')">
       <div class="flex items-center justify-between gap-3">
         <div>
-          <p class="text-sm font-medium">{{ mealLabel }} · {{ record.time }}</p>
+          <p class="text-sm font-semibold text-[var(--app-fg)]">{{ mealLabel }} · {{ record.time }}</p>
           <p class="mt-1 text-xs text-[var(--app-muted)]">{{ emoji }} {{ fullnessLabel }}</p>
         </div>
-        <span class="text-xs text-[var(--app-muted)]">编辑</span>
+        <span class="rounded-full border border-[var(--app-accent-strong)] px-3 py-1 text-xs font-semibold text-[var(--app-accent-strong)]">编辑</span>
       </div>
       <p v-if="record.note" class="mt-2 text-sm leading-6 text-[var(--app-fg)]">{{ record.note }}</p>
     </button>
 
     <div class="mt-3 flex items-center justify-between">
       <span class="text-xs text-[var(--app-muted)]">{{ record.dateKey }}</span>
-      <button class="btn btn-ghost btn-xs rounded-full text-amber-700" @click="$emit('remove')">
+      <button class="rounded-full px-3 py-1 text-xs font-semibold text-[var(--app-danger)] transition active:scale-95" @click="$emit('remove')">
         删除
       </button>
     </div>

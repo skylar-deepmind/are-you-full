@@ -1,11 +1,9 @@
 <template>
-  <div class="space-y-4">
-    <section
-      class="rounded-[1.25rem] border border-[var(--app-border)] bg-[var(--app-surface)] p-4"
-    >
+  <div class="space-y-5">
+    <section class="app-card p-4">
       <div class="flex items-center justify-between gap-3">
         <div>
-          <h2 class="text-lg font-semibold">统计</h2>
+          <h2 class="app-section-title">统计</h2>
           <p class="mt-1 text-sm text-[var(--app-muted)]">
             看看最近这段时间的吃饭感觉。
           </p>
@@ -16,7 +14,7 @@
         <button
           v-for="option in STATS_RANGE_OPTIONS"
           :key="option.key"
-          class="btn rounded-2xl"
+          class="app-pill-button min-h-11 rounded-full border px-3 text-sm font-semibold"
           :class="
             selectedRange === option.key ? activeRangeClass : inactiveRangeClass
           "
@@ -119,7 +117,7 @@ const trendPoints = computed(() => {
 });
 
 const activeRangeClass =
-  "border-[var(--app-accent-strong)] bg-[var(--app-accent-soft)] text-[var(--app-accent-strong)]";
+  "border-[var(--app-accent-strong)] bg-[var(--app-accent-soft)] text-[var(--app-green-brand)]";
 const inactiveRangeClass =
   "border-[var(--app-border)] bg-white text-[var(--app-muted)]";
 </script>
