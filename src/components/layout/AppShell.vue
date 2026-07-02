@@ -22,6 +22,7 @@ import BottomNav from "@/components/layout/BottomNav.vue";
 import ToastHost from "@/components/common/ToastHost.vue";
 import ConfirmDialog from "@/components/common/ConfirmDialog.vue";
 
+// todo: use more interesting icons for the bottom nav
 const tabs = [
   { to: "/", label: "今日", icon: "●" },
   { to: "/history", label: "历史", icon: "◷" },
